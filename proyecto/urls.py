@@ -20,3 +20,4 @@ urlpatterns = [
     url(r'^registro/', include('registro.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
+
