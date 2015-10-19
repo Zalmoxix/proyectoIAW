@@ -14,10 +14,3 @@ def index(request):
 def detail(request, inci_id):
     inci = get_object_or_404(Incidencia, pk=inci_id)
     return render(request, 'registro/detail.html', {'inci': inci})
-
-def results(request, inci_id):
-    response = "Estas mirando a los resultados de la incidencia %s."
-    return HttpResponse(response % inci_id)
-
-def vote(request, inci_id):
-    return HttpResponse("Estas votando en la incidencia %s." % inci_id)

@@ -31,6 +31,7 @@ class Incidencia(models.Model):
     AVERIA='Averia'
     incidencia_clase_tipos = ((PREGUNTA, 'Pregunta'), (ERROR, 'Error'), (AVERIA, 'Averia'), )
     incidencia_clases =models.CharField(max_length=10, choices=incidencia_clase_tipos, default=PREGUNTA)
+    incidencia_resuelta = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.id) #+ '->   ' + self.incidencia_descripcion[:30]
