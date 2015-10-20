@@ -1,13 +1,4 @@
-<p>Estas viendo la incidencia Nº{{inci.id}} <p/>
+<p>Estas viendo la incidencia Nº{{incidencia.id}} <p/>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form action="{% url 'registro:resuelta' inci.id %}" method="post">
-{% csrf_token %}
-{% for i in Cliente.inci_set.all %}
-    <input type="checkbox" name="i" id="i{{ forloop.counter }}" value="{{ inci.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="resuelta" />
-</form>
 
