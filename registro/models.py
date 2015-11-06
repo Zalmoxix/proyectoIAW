@@ -3,6 +3,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 
 
@@ -36,4 +37,7 @@ class Incidencia(models.Model):
     was_published_recently.short_description = 'Published recently?'
     def __str__(self):
         return str(self.id)
+    def get_absolute_url(self):
+        return reverse('index', kwargs={'pk': self.pk})
+
 

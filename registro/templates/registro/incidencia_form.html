@@ -1,0 +1,9 @@
+<p>Estas modificando la incidencia Nº{{incidencia.id}} <p/>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/update/" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Submit" />
+</form>
