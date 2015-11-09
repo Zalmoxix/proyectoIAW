@@ -27,16 +27,17 @@ class IncidenciaCreate(CreateView):
 class IncidenciaUpdate(UpdateView):
     model = Incidencia
     fields = ['incidencia_cliente', 'incidencia_descripcion', 'incidencia_prioridad', 'incidencia_clases']
+    success_url = ('/')
 
 class IncidenciaDelete(DeleteView):
     model = Incidencia
-    success_url = reverse_lazy('/')
+    success_url = ('/')
     template_name = 'registro/delconfirm_form.html'
 
 class DetailView(generic.DetailView):
     model = Incidencia
     template_name = 'registro/detail.html'
-
+    fields = ['incidencia_cliente', 'incidencia_descripcion', 'incidencia_prioridad', 'incidencia_clases']
 
 class ResultsView(generic.DetailView):
     model = Incidencia

@@ -1,5 +1,16 @@
-<p>Estas viendo la incidencia Nº{{incidencia.id}} <p/>
+<h1>Estas viendo la incidencia Nº{{incidencia.id}} </h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
- <button type="button" onclick="location.href='/registro/{{incidencia.id}}/delete/'" >Eliminar incidencia {{incidencia.id}}</button> 
+<p><b>Cliente asociado:</b> {{ incidencia.incidencia_cliente }}</p>
+<p><b>Descripcion:</b> {{ incidencia.incidencia_descripcion }}</p>
+<p><b>Prioridad:</b> {{ incidencia.incidencia_prioridad }}</p>
+<p><b>Tipo:</b> {{ incidencia.incidencia_clases }}</p>
+<p><b>Estado:</b> {{incidencia.incidencia_resuelta|yesno:"Resuelto,No resuelto" }}</p>
+
+
+
+<button type="button" onclick="location.href='/registro/{{incidencia.id}}/delete/'" >Eliminar incidencia {{incidencia.id}}</button> 
+<button type="button" onclick="location.href='/registro/{{incidencia.id}}/update/'" >Editar incidencia {{incidencia.id}}</button> 
+ 
+ 
