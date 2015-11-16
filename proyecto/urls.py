@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+#from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', include('registro.urls', namespace="registro")),
     url(r'^registro/', include('registro.urls', namespace="registro")),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('django.contrib.auth.urls')),
 
 ]
 

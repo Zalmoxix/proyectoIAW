@@ -1,3 +1,4 @@
+#-*- encoding: utf-8 -*-
 from django import forms
 from django.forms import ModelForm
 from .models import Incidencia, Cliente
@@ -15,3 +16,7 @@ class IncidenciaForm(ModelForm):
     class Meta:
         model = Incidencia
         fields = ['incidencia_cliente', 'incidencia_descripcion', 'incidencia_prioridad', 'incidencia_clases']
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Usuario")
+    password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
