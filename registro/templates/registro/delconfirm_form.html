@@ -1,9 +1,0 @@
-<p>¿Estas seguro de querer eliminar la incidencia {{incidencia.id}} <p/>
-
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Si" />
-	<button type="button" onclick="location.href='/'" >No</button> 
-</form>

@@ -1,0 +1,32 @@
+
+{% if form.errors %}
+<p>Usuario y/o contraseña incorrectos. Inténtelo de nuevo</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>No tienes acceso a esta pagina. Por favor, logea con una cuenta que disponga de acceso</p>
+    {% else %}
+    <p>Logeate para ver esta pagina</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>Usuario</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>Contraseña</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="/" />
+</form>
+
+
+<p><a href="{% url 'password_reset' %}">Recuperar contraseña</a></p>

@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'tracker/style.css' %}" />
+
+<p>Lista de últimas incidencias registradas<p>
+
+
+{% if ultimas_incidencias %}
+    <ul>
+    {% for inci in ultimas_incidencias %}
+        <li><a href="{% url 'tracker:detail' inci.id %}">Incidencia Nº{{ inci.id }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay incidencias disponibles.</p>
+{% endif %}

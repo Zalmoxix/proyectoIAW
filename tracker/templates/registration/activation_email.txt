@@ -1,0 +1,4 @@
+Click this link to activate your account on {{ site.name }}.
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+

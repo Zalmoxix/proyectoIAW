@@ -1,0 +1,20 @@
+<h1>Estas viendo la incidencia Nº{{incidencia.id}} </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<p><b>Cliente asociado:</b> {{ incidencia.incidencia_cliente }}</p>
+<p><b>Descripcion:</b> {{ incidencia.incidencia_descripcion }}</p>
+<p><b>Prioridad:</b> {{ incidencia.incidencia_prioridad }}</p>
+<p><b>Tipo:</b> {{ incidencia.incidencia_clases }}</p>
+<p><b>Estado:</b> {{incidencia.incidencia_resuelta|yesno:"Resuelto,No resuelto" }}</p>
+
+
+{% if user.is_authenticated %}
+    <button type="button" onclick="location.href='{% url 'tracker:delete' incidencia.id %}'" >Eliminar incidencia {{incidencia.id}}</button> 
+	<button type="button" onclick="location.href='{% url 'tracker:update' incidencia.id %}'" >Editar incidencia {{incidencia.id}}</button> 
+{% else %}
+    <p>Logeate para acceder a mas opciones</p>
+{% endif %}
+
+
+ 
