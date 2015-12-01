@@ -13,7 +13,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 from django.views.generic import DetailView
 from django.contrib.auth.models import User
-from .models import UserProfile, assure_user_profile_exists
+
 
 class IndexView(generic.ListView):
     template_name = 'tracker/index.html'
@@ -57,11 +57,17 @@ class ResultsView(generic.DetailView):
     template_name = 'tracker/results.html'
 
 class UserProfileDetail(DetailView):
-    model = UserProfile
+    model = Cliente
     template_name = 'user/userprofile_detail.html'
+    def get_object(self, queryset=None):
+        return self.request.user
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(UserProfileDetail, self).dispatch(*args, **kwargs)
+
 
 class UserProfileUpdate(UpdateView):
-    model = UserProfile
+    model = Cliente
     fields = ('homepage',)
     template_name = 'user/userprofile_form.html'
 

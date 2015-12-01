@@ -93,8 +93,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/tracker/login'
-#LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = reverse_lazy('tracker:user_profile_detail')
+LOGIN_REDIRECT_URL ='tracker:user_profile_detail'
 EMAIL_HOST = 'mail.gmx.com'
 EMAIL_PORT = 25
 EMAIL_USE_SSL = False

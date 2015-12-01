@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>{{ object.user.username }} Profile</h2>
-<p>Homepage: {{ object.homepage }}</p>
+{% if user.is_authenticated %}
+    <p>Bienvenido, {{ user.get_username }}. Gracias por logearte.</p>
+{% else %}
+    <p>Bienvenido, nuevo usuario, logeate para visualizar esta pagina.</p>
+{% endif %}
 {% endblock %}

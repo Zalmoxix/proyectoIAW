@@ -15,4 +15,3 @@ urlpatterns = [
     url(r'^tracker', include('django.contrib.auth.urls')),
 
 ]
-
