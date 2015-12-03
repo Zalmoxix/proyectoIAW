@@ -94,11 +94,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/tracker/login'
 LOGIN_REDIRECT_URL ='tracker:user_profile_detail'
-EMAIL_HOST = 'mail.gmx.com'
-EMAIL_PORT = 25
-EMAIL_USE_SSL = False
-EMAIL_HOST_USER = 'albertosanchezcruz2@gmx.es'
-EMAIL_HOST_PASSWORD = 'pruebaprueba'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'albertosanchezcruz2@gmail.com'
+EMAIL_HOST_PASSWORD = 'sajopu23629016'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
