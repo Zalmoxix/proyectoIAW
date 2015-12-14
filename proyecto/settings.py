@@ -21,6 +21,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+#    'django_admin_bootstrapped.bootstrap3',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -29,6 +31,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration',
     'tracker',
+    'bootstrap3',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,9 +80,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EUROPE/Madrid'
 
 USE_I18N = True
 
@@ -94,12 +97,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = '/tracker/login'
 LOGIN_REDIRECT_URL ='tracker:user_profile_detail'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'albertosanchezcruz2@gmail.com'
-EMAIL_HOST_PASSWORD = 'sajopu23629016'
+
 
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

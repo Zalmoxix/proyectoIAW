@@ -15,4 +15,5 @@ class UserAdmin(UserAdmin):
 admin.site.unregister(User)
 admin.site.register(Incidencia)
 admin.site.register(User, UserAdmin)
+admin.site.register(Cliente)
 
