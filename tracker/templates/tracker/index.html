@@ -2,11 +2,7 @@
 
 {% load staticfiles %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'tracker/style.css' %}" />
-
-<h1>Lista de últimas incidencias registradas</h1>
-
-{% block maincontent %}
+{% block listainci %}
 {% if ultimas_incidencias %}
     <ul>
     {% for inci in ultimas_incidencias %}
@@ -19,4 +15,4 @@
     <p>No hay incidencias disponibles.</p>
 
 {% endif %}
-{% endblock maincontent %}
+{% endblock listainci %}

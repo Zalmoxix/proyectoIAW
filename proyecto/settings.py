@@ -32,6 +32,8 @@ INSTALLED_APPS = (
     'registration',
     'tracker',
     'bootstrap3',
+    'debug_toolbar',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
