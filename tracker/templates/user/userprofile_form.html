@@ -1,10 +1,33 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block content %}
-    <h2>Editando el perfil de {{ object.user.username }}</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" />
-    </form>
-{% endblock %}
+{% load staticfiles %}
+{% block block1 %}
+<div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading" id="info">Editando el perfil de {{ object.user.username }} </h2>
+                    <form method="post">
+						{% csrf_token %}
+						{{ form.as_p }}
+						<input type="submit" />
+					</form>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block1 %}
+{% block block2 %}
+{% endblock block2 %}
+{% block block3 %}
+{% endblock block3 %}

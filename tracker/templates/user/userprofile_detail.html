@@ -1,9 +1,34 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block content %}
-{% if user.is_authenticated %}
-    <p>Bienvenido, {{ user.get_username }}. Gracias por logearte.</p>
-{% else %}
-    <p>Bienvenido, nuevo usuario, logeate para visualizar esta pagina.</p>
-{% endif %}
-{% endblock %}
+{% load staticfiles %}
+{% block block1 %}
+<div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading" id="info">Editando el perfil de {{ object.user.username }} </h2>
+                    {% if user.is_authenticated %}
+						<h2 class="section-heading" id="info">Bienvenido, {{ user.get_username }}. Gracias por logearte. </h2>
+
+					{% else %}
+						<h2 class="section-heading" id="info">>Bienvenido, nuevo usuario, logeate para visualizar esta pagina </h2>
+					{% endif %}
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block1 %}
+{% block block2 %}
+{% endblock block2 %}
+{% block block3 %}
+{% endblock block3 %}

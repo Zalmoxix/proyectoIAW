@@ -98,7 +98,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/tracker/login'
-LOGIN_REDIRECT_URL ='tracker:user_profile_detail'
+LOGIN_REDIRECT_URL ='/'
 
 
 ACCOUNT_ACTIVATION_DAYS = 7

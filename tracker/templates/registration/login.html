@@ -1,32 +1,57 @@
 
-{% if form.errors %}
-<p>Usuario y/o contraseña incorrectos. Inténtelo de nuevo</p>
-{% endif %}
+{% extends 'base.html' %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>No tienes acceso a esta pagina. Por favor, logea con una cuenta que disponga de acceso</p>
-    {% else %}
-    <p>Logeate para ver esta pagina</p>
-    {% endif %}
-{% endif %}
+{% block block1 %}
+   <div class="content-section-a">
 
-<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>Usuario</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>Contraseña</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+        <div class="container">
 
-<input type="submit" value="login" />
-<input type="hidden" name="next" value="/" />
-</form>
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Login</h2>
+                    {% if form.errors %}
+						<p>Usuario y/o contraseña incorrectos. Inténtelo de nuevo</p>
+					{% endif %}
+
+					{% if next %}
+						{% if user.is_authenticated %}
+							<p>No tienes acceso a esta pagina. Por favor, logea con una cuenta que disponga de acceso</p>
+						{% else %}
+							<p>Logeate para ver esta pagina</p>
+						{% endif %}
+					{% endif %}
+
+					<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+					{% csrf_token %}
+					<table>
+					<tr>
+						<td>Usuario</td>
+						<td>{{ form.username }}</td>
+					</tr>
+					<tr>
+						<td>Contraseña</td>
+						<td>{{ form.password }}</td>
+					</tr>
+					</table>
+
+					<input type="submit" value="login" />
+					<input type="hidden" name="next" value="/" />
+					</form>
 
 
-<p><a href="{% url 'password_reset' %}">Recuperar contraseña</a></p>
+					<p><a href="{% url 'password_reset' %}">Recuperar contraseña</a></p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+{% endblock block1 %}

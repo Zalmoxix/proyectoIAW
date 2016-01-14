@@ -24,10 +24,13 @@ class IndexView(generic.ListView):
 
 class IncidenciaCreate(CreateView):
     model = Incidencia
-    fields = ['incidencia_cliente', 'incidencia_descripcion', 'incidencia_prioridad', 'incidencia_clases']
+    fields = ['incidencia_descripcion', 'incidencia_prioridad', 'incidencia_clases']
     template_name = 'tracker/create_form.html'
     success_url = '/'
     @method_decorator(login_required)
+    def form_valid(self, form):
+        form.instance.incidencia_cliente = Cliente.object.get(user=self.request.user)
+        return super(IncidenciaCreate, self).form_valid(form)
     def dispatch(self, *args, **kwargs):
         return super(IncidenciaCreate, self).dispatch(*args, **kwargs)
 
@@ -75,4 +78,20 @@ class UserProfileUpdate(UpdateView):
         assure_user_profile_exists(kwargs['pk'])
         return (super(UserProfileUpdate, self).
                 get(self, request, *args, **kwargs))
-
+'''
+def NuevaInci(request):
+    if request.method == "POST":
+        inciform = IncidenciaForm(request.POST, instance=Incidencia())
+        clienform = [ClienteForm(request.POST, prefix=str(x), instance=Cliente()) for x in range(0,3)]
+        if clienform.is_valid() and all([inf.is_valid() for inf in inciform]):
+            nuevainci = inciform.save()
+            for cf in inciform:
+                nuevocliente = cf.save(commit=False)
+                nuevocliente.Incidencia = nuevainci
+                nuevocliente.save()
+            return HttpResponseRedirect('/tracker/add/')
+    else:
+        inciform = IncidenciaForm(instance=Incidencia())
+        clienteform = [ClienteForm(prefix=str(x), instance=Cliente()) for x in range(0,3)]
+    return render_to_response('registration_form.html', {'Incidencia_form': inciform, 'Cliente_form': clienform})
+'''

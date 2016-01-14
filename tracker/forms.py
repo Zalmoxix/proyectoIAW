@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from registration.forms import RegistrationForm
 from django.contrib.auth import get_user_model
-
+from django.forms import inlineformset_factory
 UserModel = get_user_model
 
 
@@ -22,6 +22,8 @@ class IncidenciaForm(ModelForm):
     class Meta:
         model = Incidencia
         fields = ['incidencia_cliente', 'incidencia_descripcion', 'incidencia_prioridad', 'incidencia_clases']
+        exclude = ('Cliente',)
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="Usuario")

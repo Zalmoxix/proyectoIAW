@@ -1,20 +1,46 @@
-<h1>Estas viendo la incidencia Nº{{incidencia.id}} </h1>
+{% extends 'base.html' %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% load staticfiles %}
+{% block block1 %}
+<div class="content-section-a">
 
-<p><b>Cliente asociado:</b> {{ incidencia.incidencia_cliente }}</p>
-<p><b>Descripcion:</b> {{ incidencia.incidencia_descripcion }}</p>
-<p><b>Prioridad:</b> {{ incidencia.incidencia_prioridad }}</p>
-<p><b>Tipo:</b> {{ incidencia.incidencia_clases }}</p>
-<p><b>Estado:</b> {{incidencia.incidencia_resuelta|yesno:"Resuelto,No resuelto" }}</p>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading" id="info">Estas viendo la incidencia Nº{{incidencia.id}} </h2>
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+						<p><b>Cliente asociado:</b> {{ incidencia.incidencia_cliente }}</p>
+						<p><b>Descripcion:</b> {{ incidencia.incidencia_descripcion }}</p>
+						<p><b>Prioridad:</b> {{ incidencia.incidencia_prioridad }}</p>
+						<p><b>Tipo:</b> {{ incidencia.incidencia_clases }}</p>
+						<p><b>Estado:</b> {{incidencia.incidencia_resuelta|yesno:"Resuelto,No resuelto" }}</p>
 
 
-{% if user.is_authenticated %}
-    <button type="button" onclick="location.href='{% url 'tracker:delete' incidencia.id %}'" >Eliminar incidencia {{incidencia.id}}</button> 
-	<button type="button" onclick="location.href='{% url 'tracker:update' incidencia.id %}'" >Editar incidencia {{incidencia.id}}</button> 
-{% else %}
-    <p>Logeate para acceder a mas opciones</p>
-{% endif %}
+						{% if user.is_authenticated %}
+							<button type="button" onclick="location.href='{% url 'tracker:delete' incidencia.id %}'" >Eliminar incidencia {{incidencia.id}}</button> 
+							<button type="button" onclick="location.href='{% url 'tracker:update' incidencia.id %}'" >Editar incidencia {{incidencia.id}}</button> 
+						{% else %}
+							<p>Logeate para acceder a mas opciones</p>
+					{% endif %}
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block1 %}
+{% block block2 %}
+{% endblock block2 %}
+{% block block3 %}
+{% endblock block3 %}
 
 
  

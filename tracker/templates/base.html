@@ -46,15 +46,28 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand topnav" href="/">Inicio</a>
+				<a class="navbar-brand topnav" href="/tracker/register">Registrarse</a>
+				{% if user.is_authenticated %}
+					<a class="navbar-brand topnav" href="/tracker/add">Nueva incidencia</a>
+					<a class="navbar-brand topnav" href="/tracker/logout">logout</a>		
+				{% else %}
+					<a class="navbar-brand topnav" href="/tracker/login">login</a>
+				{% endif %}
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">Sobre nosotros</a>
+                    {% if user.is_authenticated %}
+					<li>
+                        <a class="navbar-brand topnav">Bienvenido, {{ user }}</a>
                     </li>
+					{% else %}
+					<li>
+                        <a class="navbar-brand topnav">Bienvenido, por favor inicia sesión</a>
+                    </li>
+					{% endif %}
                     <li>
-                        <a href="#services">Servicios</a>
+						<a href="#about">Sobre nosotros</a>
                     </li>
                     <li>
                         <a href="#contact">Contacto</a>
@@ -100,8 +113,9 @@
     <!-- /.intro-header -->
 
     <!-- Page Content -->
-
+	{% block block1 %}
 	<a  name="services"></a>
+	
     <div class="content-section-a">
 
         <div class="container">
@@ -109,7 +123,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Primera prueba:<br>Web responsive</h2>
+                    <h2 class="section-heading">Primera prueba mod:<br>Web responsive</h2>
                     <p class="lead">Comprobemos si de verdad esta web es <a target="_blank" href="https://es.wikipedia.org/wiki/Dise%C3%B1o_web_adaptable">responsive</a> y se adapta correctamente en todos los dispositivos</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
@@ -121,53 +135,16 @@
         <!-- /.container -->
 
     </div>
-    <!-- /.content-section-a -->
+	{% endblock block1 %}
 
-    <div class="content-section-b">
+	{% block block2 %}
+    
+	{% endblock block2 %}
+	
+	{% block block3 %}
+    
+	{% endblock block3 %}
 
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Segunda prueba:<br>Bootstrap</h2>
-                    <p class="lead"><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>! Facilitandonos la vida a la hora del diseño web</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/dog.png" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Última prueba<br>listado de incidencias</h2>
-                    {% block listainci %}
-					{% endblock listainci %}
-					
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/phones.png" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
 
 	<a  name="contact"></a>
     <div class="banner">
@@ -194,7 +171,7 @@
             </div>
 
         </div>
-        <!-- /.container -->
+
 
     </div>
     <!-- /.banner -->

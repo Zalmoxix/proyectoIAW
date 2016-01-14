@@ -1,9 +1,33 @@
-<p>¿Estas seguro de querer eliminar la incidencia {{incidencia.id}} <p/>
+{% extends 'base.html' %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% load staticfiles %}
+{% block block1 %}
+<div class="content-section-a">
 
-<form action="" method="post">
-    {% csrf_token %}
-    <input type="submit" value="Si" />
-	<button type="button" onclick="location.href='{% url 'tracker:index' %}'" >No</button> 
-</form>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading" id="info">¿Estas seguro de querer eliminar la incidencia {{incidencia.id}}  </h2>
+                    <form action="" method="post">
+					{% csrf_token %}
+					<input type="submit" value="Si" />
+					<button type="button" onclick="location.href='{% url 'tracker:index' %}'" >No</button> 
+					</form>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block1 %}
+{% block block2 %}
+{% endblock block2 %}
+{% block block3 %}
+{% endblock block3 %}

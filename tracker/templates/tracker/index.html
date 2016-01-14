@@ -2,17 +2,87 @@
 
 {% load staticfiles %}
 
-{% block listainci %}
-{% if ultimas_incidencias %}
-    <ul>
-    {% for inci in ultimas_incidencias %}
-        <li><a href="{% url 'tracker:detail' inci.id %}">Incidencia Nº{{ inci.id }}</a></li>
 
-    {% endfor %}
-    </ul>
+{% block block1 %}
+<div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Última prueba<br>listado de incidencias</h2>
+                    {% if ultimas_incidencias %}
+						<ul>
+						{% for inci in ultimas_incidencias %}
+							<li><a href="{% url 'tracker:detail' inci.id %}#info">Incidencia Nº{{ inci.id }}</a></li>
+						{% endfor %}
+						</ul>
 	
-{% else %}
-    <p>No hay incidencias disponibles.</p>
+						{% else %}
+							<p>No hay incidencias disponibles.</p>
+						
+					{% endif %}	
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
 
-{% endif %}
-{% endblock listainci %}
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block1 %}
+{% block block2 %}
+<div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Segunda prueba:<br>Bootstrap</h2>
+                    <p class="lead"><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a>! Facilitandonos la vida a la hora del diseño web</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="img/dog.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+{% endblock block2 %}
+{% block block3 %}
+<a  name="services"></a>
+	
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Primera prueba mod:<br>Web responsive</h2>
+                    <p class="lead">Comprobemos si de verdad esta web es <a target="_blank" href="https://es.wikipedia.org/wiki/Dise%C3%B1o_web_adaptable">responsive</a> y se adapta correctamente en todos los dispositivos</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/ipad.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block3 %}
+
+
+
+
+

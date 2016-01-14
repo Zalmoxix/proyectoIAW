@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^/profile/detail$', views.UserProfileDetail.as_view(), name='user_profile_detail'),
 
     url(r'^(?P<pk>[0-9]+)/profile/update/$', views.UserProfileUpdate.as_view(), name='user_profile_edit'),
+
 ]
 
 

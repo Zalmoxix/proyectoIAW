@@ -1,11 +1,29 @@
-{% extends "base.html" %}
-{% load i18n %}
+{% extends 'base.html' %}
 
-{% block title %}{% trans "Register" %}{% endblock %}
-{% block content %}
+{% load staticfiles %}
+{% block block1 %}
+<div class="content-section-a">
 
-<p>
-{% trans "An email with an activation link has been sent.  Please check your email, and click on the link to complete registration." %}
-</p>
+        <div class="container">
 
-{% endblock %}
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading" id="info">Registro completado con éxito</h2>
+                    <p class="lead">Se ha enviado un link de activacion al email proporcionado. Por favor, comprueba el correo</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/phones.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+{% endblock block1 %}
+{% block block2 %}
+{% endblock block2 %}
+{% block block3 %}
+{% endblock block3 %}
